@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blog.WebUI.Models;
+using Blog.Model;
 
 namespace Blog.WebUI.Controllers
 {

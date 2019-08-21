@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Blog.WebUI.Models;
+using Blog.Model;
 
 namespace Blog.WebUI
 {

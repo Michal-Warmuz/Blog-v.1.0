@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Blog.Contracts.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace Blog.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private IUserService userService;
+
+        public HomeController(IUserService _userService)
+        {
+            userService = _userService;
+        }
         public ActionResult Index()
         {
             return View();

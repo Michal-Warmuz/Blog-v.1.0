@@ -1,4 +1,6 @@
-﻿using Ninject;
+﻿using Blog.Application;
+using Blog.Contracts.Services;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace Blog.WebUI.Infrastructure
         public NinjectControllerFactory()
         {
             kernel = new StandardKernel();
-           // kernel.Bind<ICategoryService>().To<CategoryService>();
+           kernel.Bind<IUserService>().To<UserService>();
 
 
         }
