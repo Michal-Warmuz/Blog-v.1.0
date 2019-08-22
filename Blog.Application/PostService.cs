@@ -26,9 +26,24 @@ namespace Blog.Application
 
         public string GetShortContent(string content)
         {
-            string result = content.Substring(0, 40);
-            result = result + "...";
+            string result = "";
+            if(content == null)
+            {
+                return result;
+            }
+
+            if (content.Length >40)
+            {
+                result = content.Substring(0, 40);
+                result = result + "...";
+                return result;
+            }
+            else if(content.Length <=40)
+            {
+                result = content;
+            }
             return result;
+
         }
     }
 }

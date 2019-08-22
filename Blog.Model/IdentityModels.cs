@@ -25,8 +25,8 @@ namespace Blog.Model
         {
         }
 
-        public DbSet<Post> Posts { get; set; }
-        public DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
         
 
         public static ApplicationDbContext Create()
