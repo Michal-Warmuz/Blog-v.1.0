@@ -20,6 +20,7 @@ namespace Blog.WebUI.Infrastructure
             kernel = new StandardKernel();
            kernel.Bind<IUserService>().To<UserService>();
            kernel.Bind<IPostService>().To<PostService>();
+           kernel.Bind<ICategoryService>().To<CategoryService>();
 
 
         }

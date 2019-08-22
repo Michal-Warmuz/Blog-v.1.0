@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Blog.Contracts.Services
 {
-    public interface IPostService
+    public interface ICategoryService
     {
-        string GetShortContent(string content);
-        void AddPost(Post post);
+        IEnumerable<Category> GetAllCategories();
     }
 }

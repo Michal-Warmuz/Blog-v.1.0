@@ -54,14 +54,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Migrations\201908211131427_init.cs" />
-    <Compile Include="Migrations\201908211131427_init.Designer.cs">
-      <DependentUpon>201908211131427_init.cs</DependentUpon>
+    <Compile Include="Migrations\201908211247398_addCategory.cs" />
+    <Compile Include="Migrations\201908211247398_addCategory.Designer.cs">
+      <DependentUpon>201908211247398_addCategory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201908211135393_addPost.cs" />
-    <Compile Include="Migrations\201908211135393_addPost.Designer.cs">
-      <DependentUpon>201908211135393_addPost.cs</DependentUpon>
+    <Compile Include="Migrations\201908220906344_editPost2.cs" />
+    <Compile Include="Migrations\201908220906344_editPost2.Designer.cs">
+      <DependentUpon>201908220906344_editPost2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908220933420_editPost3.cs" />
+    <Compile Include="Migrations\201908220933420_editPost3.Designer.cs">
+      <DependentUpon>201908220933420_editPost3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908220943471_editPost4.cs" />
+    <Compile Include="Migrations\201908220943471_editPost4.Designer.cs">
+      <DependentUpon>201908220943471_editPost4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -72,11 +81,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201908211131427_init.resx">
-      <DependentUpon>201908211131427_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908211247398_addCategory.resx">
+      <DependentUpon>201908211247398_addCategory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201908211135393_addPost.resx">
-      <DependentUpon>201908211135393_addPost.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201908220906344_editPost2.resx">
+      <DependentUpon>201908220906344_editPost2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908220933420_editPost3.resx">
+      <DependentUpon>201908220933420_editPost3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908220943471_editPost4.resx">
+      <DependentUpon>201908220943471_editPost4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

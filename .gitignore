@@ -340,3 +340,15 @@ ASALocalRun/
 healthchecksdb
 *.js
 *.map
+/Blog.Model/Migrations/201908220943471_editPost4.resx
+/Blog.Model/Migrations/201908220943471_editPost4.Designer.cs
+/Blog.Model/Migrations/201908220943471_editPost4.cs
+/Blog.Model/Migrations/201908220933420_editPost3.resx
+/Blog.Model/Migrations/201908220933420_editPost3.Designer.cs
+/Blog.Model/Migrations/201908220933420_editPost3.cs
+/Blog.Model/Migrations/201908220906344_editPost2.resx
+/Blog.Model/Migrations/201908220906344_editPost2.Designer.cs
+/Blog.Model/Migrations/201908220906344_editPost2.cs
+/Blog.Model/Migrations/201908211247398_addCategory.resx
+/Blog.Model/Migrations/201908211247398_addCategory.Designer.cs
+/Blog.Model/Migrations/201908211247398_addCategory.cs

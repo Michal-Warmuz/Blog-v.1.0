@@ -16,9 +16,8 @@ namespace Blog.Application
         {
             db = _db;
         }
-        public void AddPost(Post post, string userId)
+        public void AddPost(Post post)
         {
-            post.UserId = userId;
             post.DateOfAddition = DateTime.Now;
             post.ShortContent = GetShortContent(post.Content);
             db.Posts.Add(post);

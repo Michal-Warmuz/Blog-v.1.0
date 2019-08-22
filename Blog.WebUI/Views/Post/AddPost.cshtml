@@ -1,4 +1,4 @@
-﻿@model Blog.Model.Post
+﻿@model Blog.WebUI.Models.PostAddViewModel
 @{
     ViewBag.Title = "AddPost";
 }
@@ -11,17 +11,24 @@
     <h4>Utwórz nowy Post</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-    @Html.HiddenFor(x => x.PostId)
+    @Html.HiddenFor(x => x.Post.PostId)
+    @Html.HiddenFor(x => x.Post.UserId)
     <div class="form-group">
-        @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Post.Title, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Post.Title, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Post.Content, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+            @Html.TextAreaFor(m => m.Post.Content, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Post.CategoryId, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Post.CategoryId, Model.CategoryItems, "Wybierz opcję", new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
