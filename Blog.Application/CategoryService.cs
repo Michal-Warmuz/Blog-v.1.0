@@ -21,5 +21,17 @@ namespace Blog.Application
             var list = db.Categories;
             return list;
         }
+
+        public List<int> GetAllCategoriesId()
+        {
+            List<int> list = new List<int>();
+
+            foreach (var item in db.Categories)
+            {
+                list.Add(item.CategoryId);
+            }
+
+            return list;
+        }
     }
 }

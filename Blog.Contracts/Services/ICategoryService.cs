@@ -10,5 +10,6 @@ namespace Blog.Contracts.Services
     public interface ICategoryService
     {
         IEnumerable<Category> GetAllCategories();
+        List<int> GetAllCategoriesId();
     }
 }

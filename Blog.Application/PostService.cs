@@ -24,6 +24,12 @@ namespace Blog.Application
             db.SaveChanges();
         }
 
+        public IEnumerable<Post> GetNewsPostsByCategoryId(int CategoryId)
+        {
+            var list = db.Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).Take(3);
+            return list;
+        }
+
         public string GetShortContent(string content)
         {
             string result = "";
@@ -31,19 +37,20 @@ namespace Blog.Application
             {
                 return result;
             }
-
-            if (content.Length >40)
+            else
             {
-                result = content.Substring(0, 40);
-                result = result + "...";
+                if (content.Length > 40)
+                {
+                    result = content.Substring(0, 40);
+                    result = result + "...";
+                    return result;
+                }
+                else if (content.Length <= 40)
+                {
+                    result = content;
+                }
                 return result;
             }
-            else if(content.Length <=40)
-            {
-                result = content;
-            }
-            return result;
-
         }
     }
 }

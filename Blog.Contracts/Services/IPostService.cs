@@ -11,5 +11,6 @@ namespace Blog.Contracts.Services
     {
         string GetShortContent(string content);
         void AddPost(Post post);
+        IEnumerable<Post> GetNewsPostsByCategoryId(int CategoryId);
     }
 }

@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Blog.Model.Post>
+
+<div style="width: 900px;">
+    @foreach (var item in Model)
+    {
+        <div style="float: left; width: 300px;" >
+            <h4>@item.CategoryId</h4>
+            <h4>@item.Title</h4>
+            <p>@item.ShortContent</p>
+        </div>
+    }
+    <div style="clear: both"></div>
+</div>
+
