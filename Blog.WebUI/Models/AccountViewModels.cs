@@ -49,9 +49,8 @@ namespace Blog.WebUI.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Adres e-mail")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Display(Name = "Login")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,6 +63,9 @@ namespace Blog.WebUI.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Login")]
+        public string UserName { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Adres e-mail")]
