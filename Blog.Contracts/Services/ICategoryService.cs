@@ -10,7 +10,7 @@ namespace Blog.Contracts.Services
 {
     public interface ICategoryService
     {
-        IEnumerable<Category> GetAllCategories();
+        IEnumerable<Category> Categories { get; }
         List<HomeCategoryViewModel> GetAllHomeCategory();
         string GetCategoryName(int categoryId);
     }

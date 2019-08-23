@@ -17,15 +17,11 @@ namespace Blog.Application
         {
             db = _db;
         }
-        public IEnumerable<Category> GetAllCategories()
-        {
-            var list = db.Categories;
-            return list;
-        }
+        public IEnumerable<Category> Categories { get { return db.Categories; } }
 
         public List<HomeCategoryViewModel> GetAllHomeCategory()
         {
-            var list = db.Categories;
+            var list = Categories;
             List<HomeCategoryViewModel> model = new List<HomeCategoryViewModel>();
 
             foreach (var item in list)

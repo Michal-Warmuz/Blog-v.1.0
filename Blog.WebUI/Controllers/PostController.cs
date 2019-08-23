@@ -33,7 +33,7 @@ namespace Blog.WebUI.Controllers
             PostAddViewModel vm = new PostAddViewModel
             {
                 Post = post,
-                Categories = categoryService.GetAllCategories(),
+                Categories = categoryService.Categories
                 
             };
             
@@ -57,7 +57,7 @@ namespace Blog.WebUI.Controllers
                 PostAddViewModel vm = new PostAddViewModel
                 {
                     Post = post,
-                    Categories = categoryService.GetAllCategories()
+                    Categories = categoryService.Categories
                 };
                 return View(vm);
             }
@@ -68,6 +68,13 @@ namespace Blog.WebUI.Controllers
         public ViewResult GetPostDetails(int postId)
         {
             var item = postService.GetPostDetails(postId);
+            return View(item);
+        }
+
+        [HttpGet]
+        public ViewResult GetPostByCategoryId(int categoryId)
+        {
+            var item = postService.GetPostsByCategoryId(categoryId);
             return View(item);
         }
     }

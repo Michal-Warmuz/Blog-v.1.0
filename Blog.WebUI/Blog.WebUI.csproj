@@ -243,6 +243,7 @@
     <Content Include="Views\Post\AddPost.cshtml" />
     <Content Include="Views\Home\_NewsPosts.cshtml" />
     <Content Include="Views\Post\GetPostDetails.cshtml" />
+    <Content Include="Views\Post\GetPostByCategoryId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

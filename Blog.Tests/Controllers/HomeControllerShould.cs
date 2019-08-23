@@ -1,4 +1,5 @@
 ﻿using Blog.Application;
+using Blog.Contracts.Services;
 using Blog.Contracts.ViewModels;
 using Blog.Model;
 using Blog.WebUI.Controllers;
@@ -17,19 +18,26 @@ namespace Blog.Tests.Controllers
     [TestFixture]
     public class HomeControllerShould
     {
+    
         [Test]
         public void Return_Home_Index()
         {
-            
-            var mockCtx = new Mock<ApplicationDbContext>();
-            var categoryService = new CategoryService(mockCtx.Object);
-            
-            var controller = new HomeController(null,categoryService,null);
+
+
+            var mockCtx = new  Mock<ICategoryService>();
+            mockCtx.Setup(m => m.GetAllHomeCategory()).Returns(new List<HomeCategoryViewModel>
+            {
+                new HomeCategoryViewModel() { CategoryId = 1, Name = "P1"},
+                new HomeCategoryViewModel() { CategoryId = 2, Name = "P2"}
+            });
+
+           
+            var controller = new HomeController(null,mockCtx.Object,null);
             var result = controller.Index() as ViewResult;
             var list = (List<HomeCategoryViewModel>)result.ViewData.Model;
             
 
-            Assert.AreEqual(list[0].Name, "Odżywianie");
+            Assert.AreEqual(list[0].Name, "P1");
         }
     }
 }

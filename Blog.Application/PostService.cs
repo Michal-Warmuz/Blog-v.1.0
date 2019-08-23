@@ -21,6 +21,8 @@ namespace Blog.Application
             categoryService = _categoryService;
             userService = _userService;
         }
+
+        public IEnumerable<Post> Posts { get { return db.Posts; } }
         public void AddPost(Post post)
         {
             post.DateOfAddition = DateTime.Now;
@@ -31,7 +33,7 @@ namespace Blog.Application
 
         public List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId)
         {
-            var list = db.Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).Take(3);
+            var list = Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).Take(3);
 
             List<HomePostViewModel>  model = new List<HomePostViewModel>();
 
@@ -67,7 +69,7 @@ namespace Blog.Application
 
         public PostDetailsViewModel GetPostDetails(int postId)
         {
-            var model = db.Posts.SingleOrDefault(x => x.PostId == postId);
+            var model = Posts.SingleOrDefault(x => x.PostId == postId);
 
             var item = new PostDetailsViewModel()
             {
@@ -79,6 +81,19 @@ namespace Blog.Application
             };
 
             return item;
+        }
+
+        public List<HomePostViewModel> GetPostsByCategoryId(int CategoryId)
+        {
+            var list = Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).ToList();
+
+            List<HomePostViewModel> model = new List<HomePostViewModel>();
+
+            foreach (var item in list)
+            {
+                model.Add(new HomePostViewModel() { PostId = item.PostId, Title = item.Title, ShortContent = item.ShortContent, CategoryName = categoryService.GetCategoryName(item.CategoryId) });
+            }
+            return model;
         }
     }
 }
