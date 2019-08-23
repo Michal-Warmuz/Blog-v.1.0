@@ -21,6 +21,7 @@ namespace Blog.WebUI.Infrastructure
            kernel.Bind<IUserService>().To<UserService>();
            kernel.Bind<IPostService>().To<PostService>();
            kernel.Bind<ICategoryService>().To<CategoryService>();
+           kernel.Bind<ICommentService>().To<CommentService>();
 
 
         }

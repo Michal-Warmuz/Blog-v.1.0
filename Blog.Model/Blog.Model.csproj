@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Category.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\201908211247398_addCategory.cs" />
     <Compile Include="Migrations\201908211247398_addCategory.Designer.cs">
@@ -138,6 +139,10 @@
     <Compile Include="Migrations\201908220943471_editPost4.cs" />
     <Compile Include="Migrations\201908220943471_editPost4.Designer.cs">
       <DependentUpon>201908220943471_editPost4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201908231927251_AddComment.cs" />
+    <Compile Include="Migrations\201908231927251_AddComment.Designer.cs">
+      <DependentUpon>201908231927251_AddComment.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
@@ -159,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908220943471_editPost4.resx">
       <DependentUpon>201908220943471_editPost4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908231927251_AddComment.resx">
+      <DependentUpon>201908231927251_AddComment.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
