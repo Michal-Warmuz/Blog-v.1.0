@@ -242,6 +242,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Post\AddPost.cshtml" />
     <Content Include="Views\Home\_NewsPosts.cshtml" />
+    <Content Include="Views\Post\GetPostDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

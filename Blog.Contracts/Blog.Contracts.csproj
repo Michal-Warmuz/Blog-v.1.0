@@ -47,6 +47,7 @@
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="ViewModels\HomeCategoryViewModel.cs" />
     <Compile Include="ViewModels\HomePostViewModel.cs" />
+    <Compile Include="ViewModels\PostDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

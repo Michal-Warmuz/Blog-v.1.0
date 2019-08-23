@@ -13,11 +13,13 @@ namespace Blog.Application
     {
         private ApplicationDbContext db;
         private ICategoryService categoryService;
+        private IUserService userService;
 
-        public PostService(ApplicationDbContext _db, ICategoryService _categoryService)
+        public PostService(ApplicationDbContext _db, ICategoryService _categoryService, IUserService _userService)
         {
             db = _db;
             categoryService = _categoryService;
+            userService = _userService;
         }
         public void AddPost(Post post)
         {
@@ -61,6 +63,22 @@ namespace Blog.Application
                 }
                 return result;
             }
+        }
+
+        public PostDetailsViewModel GetPostDetails(int postId)
+        {
+            var model = db.Posts.SingleOrDefault(x => x.PostId == postId);
+
+            var item = new PostDetailsViewModel()
+            {
+                CategoryName = categoryService.GetCategoryName(model.CategoryId),
+                Content = model.Content,
+                DateOfAddition = model.DateOfAddition,
+                Title = model.Title,
+                UserName = userService.GetUserName(model.UserId)
+            };
+
+            return item;
         }
     }
 }

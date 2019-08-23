@@ -164,6 +164,7 @@
   <ItemGroup>
     <Compile Include="Controllers\HomeControllerShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoryServiceShould.cs" />
     <Compile Include="Services\PostServiceShould.cs" />
   </ItemGroup>
   <ItemGroup>

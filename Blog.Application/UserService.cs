@@ -20,5 +20,10 @@ namespace Blog.Application
         {
             throw new NotImplementedException();
         }
+
+        public string GetUserName(string userId)
+        {
+            return db.Users.SingleOrDefault(x => x.Id == userId).UserName;
+        }
     }
 }

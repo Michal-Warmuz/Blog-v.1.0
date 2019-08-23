@@ -63,5 +63,12 @@ namespace Blog.WebUI.Controllers
             }
             
         }
+
+        [HttpGet]
+        public ViewResult GetPostDetails(int postId)
+        {
+            var item = postService.GetPostDetails(postId);
+            return View(item);
+        }
     }
 }

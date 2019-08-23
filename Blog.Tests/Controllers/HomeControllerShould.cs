@@ -1,4 +1,5 @@
 ﻿using Blog.Application;
+using Blog.Contracts.ViewModels;
 using Blog.Model;
 using Blog.WebUI.Controllers;
 using Moq;
@@ -19,16 +20,16 @@ namespace Blog.Tests.Controllers
         [Test]
         public void Return_Home_Index()
         {
-            var mockSet = new Mock<DbSet<Category>>();
+            
             var mockCtx = new Mock<ApplicationDbContext>();
-            mockCtx.Setup(x => x.Categories).Returns(mockSet.Object);
             var categoryService = new CategoryService(mockCtx.Object);
             
             var controller = new HomeController(null,categoryService,null);
             var result = controller.Index() as ViewResult;
-            var list = (List<int>)result.ViewData.Model;
+            var list = (List<HomeCategoryViewModel>)result.ViewData.Model;
+            
 
-            Assert.AreEqual(list[0], "1");
+            Assert.AreEqual(list[0].Name, "Odżywianie");
         }
     }
 }

@@ -32,19 +32,5 @@ namespace Blog.WebUI.Controllers
             var list = postService.GetNewsPostsByCategoryId(CategoryId);
             return PartialView("_NewsPosts",list);
         }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }

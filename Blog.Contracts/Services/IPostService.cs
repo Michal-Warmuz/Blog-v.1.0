@@ -13,5 +13,6 @@ namespace Blog.Contracts.Services
         string GetShortContent(string content);
         void AddPost(Post post);
         List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId);
+        PostDetailsViewModel GetPostDetails(int postId);
     }
 }

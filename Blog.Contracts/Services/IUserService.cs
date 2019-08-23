@@ -10,5 +10,6 @@ namespace Blog.Contracts.Services
     public interface IUserService
     {
         IEnumerable<ApplicationUser> GetAll();
+        string GetUserName(string userId);
     }
 }
