@@ -73,6 +73,7 @@ namespace Blog.Application
 
             var item = new PostDetailsViewModel()
             {
+                PostId = model.PostId,
                 CategoryName = categoryService.GetCategoryName(model.CategoryId),
                 Content = model.Content,
                 DateOfAddition = model.DateOfAddition,
@@ -94,6 +95,20 @@ namespace Blog.Application
                 model.Add(new HomePostViewModel() { PostId = item.PostId, Title = item.Title, ShortContent = item.ShortContent, CategoryName = categoryService.GetCategoryName(item.CategoryId) });
             }
             return model;
+        }
+
+        public void EditPost(Post post)
+        {
+            post.DateOfAddition = DateTime.Now;
+            post.ShortContent = GetShortContent(post.Content);
+            db.Entry(post).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public Post GetPost(int postId)
+        {
+            var item = db.Posts.SingleOrDefault(x => x.PostId == postId);
+            return item;
         }
     }
 }

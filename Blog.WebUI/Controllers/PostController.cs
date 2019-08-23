@@ -22,6 +22,40 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpGet]
+        public ViewResult EditPost(int postId)
+        {
+            var post = postService.GetPost(postId);
+
+            PostAddViewModel vm = new PostAddViewModel
+            {
+                Post = post,
+                Categories = categoryService.Categories
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPost(Post post)
+        {
+            if (ModelState.IsValid)
+            {
+                postService.EditPost(post);
+                return RedirectToAction("Index", "Home");
+
+            }
+            else
+            {
+                PostAddViewModel vm = new PostAddViewModel
+                {
+                    Post = post,
+                    Categories = categoryService.Categories
+                };
+                return View(vm);
+            }
+        }
+
+        [HttpGet]
         public ViewResult AddPost()
         {
 
@@ -35,9 +69,7 @@ namespace Blog.WebUI.Controllers
                 Post = post,
                 Categories = categoryService.Categories
                 
-            };
-            
-            
+            };      
             return View(vm);
         }
 

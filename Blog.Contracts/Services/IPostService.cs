@@ -16,5 +16,7 @@ namespace Blog.Contracts.Services
         List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId);
         PostDetailsViewModel GetPostDetails(int postId);
         List<HomePostViewModel> GetPostsByCategoryId(int CategoryId);
+        void EditPost(Post post);
+        Post GetPost(int postId);
     }
 }
