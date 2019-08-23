@@ -1,4 +1,5 @@
-﻿using Blog.Model;
+﻿using Blog.Contracts.ViewModels;
+using Blog.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace Blog.Contracts.Services
 {
     public interface ICommentService
     {
+        IEnumerable<Comment> Comments { get; }
         void AddComment(Comment comment, string userId);
+        List<CommentViewModel> GetComments(int postId);
     }
 }

@@ -1,0 +1,17 @@
+﻿@model List<Blog.Contracts.ViewModels.CommentViewModel>
+
+
+<table class="table table-striped">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td>
+                    <h6>@item.DateOfAddition</h6>
+                    <p>@item.Content</p>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

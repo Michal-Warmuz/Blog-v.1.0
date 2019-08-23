@@ -41,5 +41,12 @@ namespace Blog.WebUI.Controllers
             }
             return View(comment);
         }
+
+        [HttpGet]
+        public PartialViewResult ViewComments(int postId)
+        {
+            var items = commentService.GetComments(postId);
+            return PartialView("_ViewComments", items);
+        }
     }
 }
