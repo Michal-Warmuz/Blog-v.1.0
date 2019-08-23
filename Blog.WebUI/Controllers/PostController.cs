@@ -55,6 +55,13 @@ namespace Blog.WebUI.Controllers
             }
         }
 
+        [HttpPost]
+        public ActionResult DeletePost(int postId)
+        {
+            postService.DeletePost(postId);
+            return RedirectToAction("Index", "Home");
+        }
+
         [HttpGet]
         public ViewResult AddPost()
         {

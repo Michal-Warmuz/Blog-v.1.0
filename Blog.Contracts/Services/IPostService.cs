@@ -18,5 +18,6 @@ namespace Blog.Contracts.Services
         List<HomePostViewModel> GetPostsByCategoryId(int CategoryId);
         void EditPost(Post post);
         Post GetPost(int postId);
+        void DeletePost(int postId);
     }
 }

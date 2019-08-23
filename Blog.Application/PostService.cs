@@ -110,5 +110,12 @@ namespace Blog.Application
             var item = db.Posts.SingleOrDefault(x => x.PostId == postId);
             return item;
         }
+
+        public void DeletePost(int postId)
+        {
+            var post = GetPost(postId);
+            db.Posts.Remove(post);
+            db.SaveChanges();
+        }
     }
 }
