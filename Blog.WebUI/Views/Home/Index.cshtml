@@ -1,9 +1,10 @@
-﻿@model List<int>
+﻿@model List<Blog.Contracts.ViewModels.HomeCategoryViewModel>
 @{
     ViewBag.Title = "Home Page";
 }
 
 @foreach (var item in Model)
 {
-    @Html.Action("NewsPosts", new { CategoryId = item })
+    <h1>@item.Name</h1>
+    @Html.Action("NewsPosts", new { CategoryId = item.CategoryId })
 }

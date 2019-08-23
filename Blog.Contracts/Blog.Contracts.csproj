@@ -45,10 +45,10 @@
     <Compile Include="Services\ICategoryService.cs" />
     <Compile Include="Services\IPostService.cs" />
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="ViewModels\HomeCategoryViewModel.cs" />
+    <Compile Include="ViewModels\HomePostViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Blog.Model\Blog.Model.csproj">
       <Project>{DE31613C-DFF2-4E28-8649-3837CE536FFE}</Project>

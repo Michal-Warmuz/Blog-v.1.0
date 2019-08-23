@@ -1,4 +1,5 @@
-﻿using Blog.Model;
+﻿using Blog.Contracts.ViewModels;
+using Blog.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace Blog.Contracts.Services
     public interface ICategoryService
     {
         IEnumerable<Category> GetAllCategories();
-        List<int> GetAllCategoriesId();
+        List<HomeCategoryViewModel> GetAllHomeCategory();
+        string GetCategoryName(int categoryId);
     }
 }

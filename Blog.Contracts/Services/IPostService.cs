@@ -1,4 +1,5 @@
-﻿using Blog.Model;
+﻿using Blog.Contracts.ViewModels;
+using Blog.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace Blog.Contracts.Services
     {
         string GetShortContent(string content);
         void AddPost(Post post);
-        IEnumerable<Post> GetNewsPostsByCategoryId(int CategoryId);
+        List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId);
     }
 }

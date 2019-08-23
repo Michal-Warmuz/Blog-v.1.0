@@ -20,9 +20,9 @@ namespace Blog.WebUI.Controllers
             categoryService = _categoryService;
             postService = _postService;
         }
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            var list = categoryService.GetAllCategoriesId();
+            var list = categoryService.GetAllHomeCategory();
 
             return View(list);
         }

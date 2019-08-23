@@ -1,4 +1,5 @@
 ﻿using Blog.Contracts.Services;
+using Blog.Contracts.ViewModels;
 using Blog.Model;
 using System;
 using System.Collections.Generic;
@@ -22,16 +23,22 @@ namespace Blog.Application
             return list;
         }
 
-        public List<int> GetAllCategoriesId()
+        public List<HomeCategoryViewModel> GetAllHomeCategory()
         {
-            List<int> list = new List<int>();
+            var list = db.Categories;
+            List<HomeCategoryViewModel> model = new List<HomeCategoryViewModel>();
 
-            foreach (var item in db.Categories)
+            foreach (var item in list)
             {
-                list.Add(item.CategoryId);
+                model.Add(new HomeCategoryViewModel() { CategoryId = item.CategoryId, Name = item.Name });
             }
+            return model;
+        }
 
-            return list;
+        public string GetCategoryName(int categoryId)
+        {
+            string name = db.Categories.SingleOrDefault(x => x.CategoryId == categoryId).Name;
+            return name;
         }
     }
 }

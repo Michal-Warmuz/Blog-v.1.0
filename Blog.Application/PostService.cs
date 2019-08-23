@@ -1,4 +1,5 @@
 ﻿using Blog.Contracts.Services;
+using Blog.Contracts.ViewModels;
 using Blog.Model;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,12 @@ namespace Blog.Application
     public class PostService : IPostService
     {
         private ApplicationDbContext db;
+        private ICategoryService categoryService;
 
-        public PostService(ApplicationDbContext _db)
+        public PostService(ApplicationDbContext _db, ICategoryService _categoryService)
         {
             db = _db;
+            categoryService = _categoryService;
         }
         public void AddPost(Post post)
         {
@@ -24,10 +27,17 @@ namespace Blog.Application
             db.SaveChanges();
         }
 
-        public IEnumerable<Post> GetNewsPostsByCategoryId(int CategoryId)
+        public List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId)
         {
             var list = db.Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).Take(3);
-            return list;
+
+            List<HomePostViewModel>  model = new List<HomePostViewModel>();
+
+            foreach (var item in list)
+            {
+                model.Add(new HomePostViewModel() { PostId = item.PostId, Title = item.Title, ShortContent = item.ShortContent, CategoryName = categoryService.GetCategoryName(item.CategoryId) });
+            }
+            return model;
         }
 
         public string GetShortContent(string content)
