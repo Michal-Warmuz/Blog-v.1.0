@@ -48,5 +48,14 @@ namespace Blog.WebUI.Controllers
             var items = commentService.GetComments(postId);
             return PartialView("_ViewComments", items);
         }
+
+
+        [HttpPost]
+        public ActionResult DeleteComment(int commentId)
+        {
+            var post = commentService.FindComment(commentId).PostId;
+            commentService.DeleteComment(commentId);
+            return RedirectToAction("GetPostDetails", "Post", new { postId =  post} );
+        }
     }
 }

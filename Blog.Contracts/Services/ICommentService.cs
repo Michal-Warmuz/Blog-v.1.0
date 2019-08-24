@@ -13,5 +13,7 @@ namespace Blog.Contracts.Services
         IEnumerable<Comment> Comments { get; }
         void AddComment(Comment comment, string userId);
         List<CommentViewModel> GetComments(int postId);
+        void DeleteComment(int commentId);
+        Comment FindComment(int commentId);
     }
 }

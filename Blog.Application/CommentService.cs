@@ -29,6 +29,18 @@ namespace Blog.Application
             db.SaveChanges();
         }
 
+        public void DeleteComment(int commentId)
+        {
+            var item = FindComment(commentId);
+            db.Comments.Remove(item);
+            db.SaveChanges();
+        }
+
+        public Comment FindComment(int commentId)
+        {
+            return Comments.SingleOrDefault(x => x.CommentId == commentId);
+        }
+
         public List<CommentViewModel> GetComments(int postId)
         {
             var list = Comments.Where(x => x.PostId == postId);

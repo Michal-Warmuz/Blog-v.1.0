@@ -11,6 +11,12 @@
                     <h6>@item.DateOfAddition</h6>
                     <p>@item.Content</p>
                 </td>
+                <td>    
+                    @using(Html.BeginForm("DeleteComment", "Comment", new { commentId = item.CommentId } ))
+                    {
+                        <button class="btn btn-danger">Usuń</button>
+                    }
+                </td>
             </tr>
         }
     </tbody>
