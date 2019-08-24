@@ -7,6 +7,12 @@
 
     <ul class="nav navbar-nav navbar-right">
         <li>
+            @if (User.IsInRole("Redaktor"))
+            {
+                <a href="@Url.Action("AddPost", "Post")">Dodaj Wpis</a>
+            }
+        </li>
+        <li>
             <img src="@Html.Action("GetImage", "Account", new { userId = User.Identity.GetUserId() })" width="50" height="50" />
         </li>
         <li>

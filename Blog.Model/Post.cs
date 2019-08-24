@@ -16,10 +16,12 @@ namespace Blog.Model
         public string UserId { get; set; }
         [Required]
         [Display(Name = "Tytuł")]
+        [MinLength(10, ErrorMessage = "Za mała liczba znaków")]
+        [MaxLength(50, ErrorMessage = "Za duża liczba znaków")]
         public string Title { get; set; }
         [Required]
-        [MinLength(20, ErrorMessage = "Za mała liczba znaków")]
-        [MaxLength(1020, ErrorMessage = "Za duża liczba znaków")]
+        [MinLength(200, ErrorMessage = "Za mała liczba znaków")]
+        [MaxLength(10200, ErrorMessage = "Za duża liczba znaków")]
         [Display(Name = "Treść")]
         public string Content { get; set; }
         public DateTime DateOfAddition { get; set; }
