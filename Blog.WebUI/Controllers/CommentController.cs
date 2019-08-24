@@ -50,6 +50,16 @@ namespace Blog.WebUI.Controllers
         }
 
 
+        [HttpGet]
+        public ViewResult EditComments(int commentId)
+        {
+            var items = commentService.FindComment(commentId);
+                
+            return View(items);
+        }
+
+
+
         [HttpPost]
         public ActionResult DeleteComment(int commentId)
         {

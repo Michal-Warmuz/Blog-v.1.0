@@ -1,19 +1,29 @@
 ﻿@model Blog.Contracts.ViewModels.PostDetailsViewModel
 @{
-    ViewBag.Title = "GetPostDetails";
+
 }
 
-<h2>@Model.Title <a class="btn btn-warning" href="@Url.Action("EditPost", "Post", new { postId = Model.PostId })">Edytuj</a></h2>
+<h2>
+    @Model.Title
+    @if (User.IsInRole("Redaktor"))
+    {
+        <a class="btn btn-warning" href="@Url.Action("EditPost", "Post", new { postId = Model.PostId })">Edytuj</a>
+    }
+</h2>
 <h4>@Model.CategoryName</h4>
 <h5>@Model.DateOfAddition | @Model.UserName</h5>
 <p>@Model.Content</p>
-@using (Html.BeginForm("DeletePost", "Post", FormMethod.Post))
+@if (User.IsInRole("Redaktor"))
 {
-    @Html.HiddenFor(x => x.PostId)
-    <button class="btn btn-danger">Usuń</button>
+    using (Html.BeginForm("DeletePost", "Post", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.PostId)
+        <button class="btn btn-danger">Usuń</button>
+    }
 }
 
-@Html.Action("AddComment", "Comment", new { postId = Model.PostId})
+
+@Html.Action("AddComment", "Comment", new { postId = Model.PostId })
 
 
 @Html.Action("ViewComments", "Comment", new { postId = Model.PostId })

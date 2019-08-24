@@ -15,5 +15,6 @@ namespace Blog.Contracts.Services
         List<CommentViewModel> GetComments(int postId);
         void DeleteComment(int commentId);
         Comment FindComment(int commentId);
+        void EditComment(Comment comment);
     }
 }

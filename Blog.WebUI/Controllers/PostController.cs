@@ -22,6 +22,7 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Redaktor")]
         public ViewResult EditPost(int postId)
         {
             var post = postService.GetPost(postId);
@@ -36,6 +37,7 @@ namespace Blog.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Redaktor")]
         public ActionResult EditPost(Post post)
         {
             if (ModelState.IsValid)
@@ -56,6 +58,7 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Redaktor")]
         public ActionResult DeletePost(int postId)
         {
             postService.DeletePost(postId);
@@ -63,6 +66,7 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Redaktor")]
         public ViewResult AddPost()
         {
 
@@ -82,6 +86,7 @@ namespace Blog.WebUI.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Redaktor")]
         public ActionResult AddPost(Post post)
         {
         

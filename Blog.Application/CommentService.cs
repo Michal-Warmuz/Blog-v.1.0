@@ -36,6 +36,12 @@ namespace Blog.Application
             db.SaveChanges();
         }
 
+        public void EditComment(Comment comment)
+        {
+            db.Entry(comment).State = System.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+        }
+
         public Comment FindComment(int commentId)
         {
             return Comments.SingleOrDefault(x => x.CommentId == commentId);
