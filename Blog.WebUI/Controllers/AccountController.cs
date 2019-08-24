@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Blog.WebUI.Models;
 using Blog.Model;
+using Blog.Contracts.Services;
 
 namespace Blog.WebUI.Controllers
 {
@@ -18,9 +19,11 @@ namespace Blog.WebUI.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IUserService userService;
 
-        public AccountController()
+        public AccountController(IUserService _userService)
         {
+            userService = _userService;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -487,6 +490,20 @@ namespace Blog.WebUI.Controllers
         public string GetImage(string userId)
         {
             return UserManager.FindById(userId).ImageUrl;
+        }
+
+        [HttpGet]
+        public ActionResult ChangeAvatar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangeAvatar(HttpPostedFileBase file)
+        {
+            string userID = User.Identity.GetUserId();
+            userService.ChangeAvatars(file, userID);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Blog.Contracts.Services
 {
@@ -12,5 +13,6 @@ namespace Blog.Contracts.Services
         IEnumerable<ApplicationUser> GetAll();
         string GetUserName(string userId);
         string GetUserImageUrl(string userId);
+        void ChangeAvatars(HttpPostedFileBase file, string Id);
     }
 }

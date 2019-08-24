@@ -248,9 +248,11 @@
     <Content Include="Views\Post\EditPost.cshtml" />
     <Content Include="Views\Comment\AddComment.cshtml" />
     <Content Include="Views\Comment\_ViewComments.cshtml" />
+    <Content Include="Views\Account\ChangeAvatar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

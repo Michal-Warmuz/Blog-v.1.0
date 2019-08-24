@@ -1,0 +1,54 @@
+﻿@model Blog.Model.ApplicationUser
+
+@{
+
+    ViewBag.Title = "ChangeAvatar";
+
+}
+
+
+
+<h2>Zmiania Avatara</h2>
+
+
+
+<div>
+
+    @using (Html.BeginForm("ChangeAvatar", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <hr />
+
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+
+        @Html.HiddenFor(x=>x.Id)
+
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.ImageUrl, new { @class = "col-md-2 control-label" })
+
+            <div class="col-md-10">
+
+                <input type="file" name="file" id="file" />
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-md-offset-2 col-md-10">
+
+                <input type="submit" value="Zmień Avatar" class="btn btn-default" />
+
+            </div>
+
+        </div>
+
+    }
+
+</div>
+
+
+
+
+
