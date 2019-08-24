@@ -6,9 +6,11 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.UserName</td>
                 <td>
-                    <h6>@item.DateOfAddition</h6>
+                    <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="50" height="50" />
+                </td>
+                <td>
+                    <h6><b>@item.UserName</b> | @item.DateOfAddition</h6>
                     <p>@item.Content</p>
                 </td>
                 <td>    

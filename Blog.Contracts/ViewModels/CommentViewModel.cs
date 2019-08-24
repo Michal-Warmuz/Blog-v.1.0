@@ -9,6 +9,7 @@ namespace Blog.Contracts.ViewModels
     public class CommentViewModel
     {
         public int CommentId { get; set; }
+        public string ImageUrl { get; set; }
         public string UserName { get; set; }
         public string Content { get; set; }
         public DateTime DateOfAddition { get; set; }

@@ -11,5 +11,6 @@ namespace Blog.Contracts.Services
     {
         IEnumerable<ApplicationUser> GetAll();
         string GetUserName(string userId);
+        string GetUserImageUrl(string userId);
     }
 }

@@ -150,9 +150,10 @@ namespace Blog.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            string path = @"/Content/user.gif";
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email , ImageUrl = path};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -482,5 +483,10 @@ namespace Blog.WebUI.Controllers
             }
         }
         #endregion
+
+        public string GetImage(string userId)
+        {
+            return UserManager.FindById(userId).ImageUrl;
+        }
     }
 }

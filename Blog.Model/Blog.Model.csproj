@@ -144,6 +144,10 @@
     <Compile Include="Migrations\201908231927251_AddComment.Designer.cs">
       <DependentUpon>201908231927251_AddComment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908240951315_addAvatar.cs" />
+    <Compile Include="Migrations\201908240951315_addAvatar.Designer.cs">
+      <DependentUpon>201908240951315_addAvatar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908231927251_AddComment.resx">
       <DependentUpon>201908231927251_AddComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908240951315_addAvatar.resx">
+      <DependentUpon>201908240951315_addAvatar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
