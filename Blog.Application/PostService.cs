@@ -1,6 +1,7 @@
 ﻿using Blog.Contracts.Services;
 using Blog.Contracts.ViewModels;
 using Blog.Model;
+using Blog.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -72,6 +73,7 @@ namespace Blog.Application
                 return result;
             }
         }
+        
 
         public PostDetailsViewModel GetPostDetails(int postId)
         {
@@ -82,7 +84,7 @@ namespace Blog.Application
                 PostId = model.PostId,
                 CategoryName = categoryService.GetCategoryName(model.CategoryId),
                 Content = model.Content,
-                DateOfAddition = model.DateOfAddition,
+                DateOfAddition = ConvertDate.ConvertRelativeDate(model.DateOfAddition),
                 Title = model.Title,
                 UserName = userService.GetUserName(model.UserId)
             };

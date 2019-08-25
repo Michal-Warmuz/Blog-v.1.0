@@ -12,7 +12,7 @@ namespace Blog.Contracts.ViewModels
         public string CategoryName { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public DateTime DateOfAddition { get; set; }
+        public string DateOfAddition { get; set; }
         public string UserName { get; set; }
     }
 }
