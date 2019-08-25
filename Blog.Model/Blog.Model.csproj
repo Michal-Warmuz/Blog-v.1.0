@@ -152,6 +152,10 @@
     <Compile Include="Migrations\201908241403585_improve.Designer.cs">
       <DependentUpon>201908241403585_improve.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201908250731202_improve2.cs" />
+    <Compile Include="Migrations\201908250731202_improve2.Designer.cs">
+      <DependentUpon>201908250731202_improve2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -181,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201908241403585_improve.resx">
       <DependentUpon>201908241403585_improve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201908250731202_improve2.resx">
+      <DependentUpon>201908250731202_improve2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

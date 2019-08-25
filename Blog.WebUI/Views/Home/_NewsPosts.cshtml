@@ -3,12 +3,12 @@
 <div style="width: 900px;">
     @foreach (var item in Model)
     {
-        <div style="float: left; width: 300px;" >
-            <h4>@item.CategoryName</h4>
-            <h4>@item.Title</h4>
-            <p>@item.ShortContent</p>
-            <a href="@Url.Action("GetPostDetails", "Post", new { postId = item.PostId })">Czytaj więcej..</a>
-        </div>
+    <div style="float: left; width: 300px;">
+        <h4>@item.Title</h4>
+        <h6 style="color: brown">@item.CategoryName</h6>
+        <p>@item.ShortContent</p>
+        <a href="@Url.Action("GetPostDetails", "Post", new { postId = item.PostId })">Czytaj więcej..</a>
+    </div>
     }
     <div style="clear: both"></div>
 </div>

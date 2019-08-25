@@ -37,6 +37,11 @@ namespace Blog.Application
             return model;
         }
 
+        public Category GetCategory(int categoryId)
+        {
+            return Categories.SingleOrDefault(x => x.CategoryId == categoryId);
+        }
+
         public string GetCategoryDescription(int categoryId)
         {
             string item = db.Categories.SingleOrDefault(x => x.CategoryId == categoryId).Description;
