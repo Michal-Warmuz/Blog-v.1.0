@@ -18,6 +18,10 @@
                     {
                         <button class="btn btn-danger">Usuń</button>
                     }
+                    
+                 </td>
+                <td>
+                    <a class="btn btn-warning" href="@Url.Action("EditComments", "Comment", new { commentId = item.CommentId })">Edytuj</a>
                 </td>
             </tr>
         }

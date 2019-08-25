@@ -22,7 +22,8 @@ namespace Blog.WebUI.Controllers
         [HttpGet]
         public ViewResult AddComment(int postId)
         {
-            Comment comment = new Comment
+
+            var comment = new Comment()
             {
                 PostId = postId
             };
@@ -32,7 +33,7 @@ namespace Blog.WebUI.Controllers
         [HttpPost]
         public ActionResult AddComment(Comment comment)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 string userId = User.Identity.GetUserId();
                 commentService.AddComment(comment, userId);
@@ -56,6 +57,18 @@ namespace Blog.WebUI.Controllers
             var items = commentService.FindComment(commentId);
                 
             return View(items);
+        }
+
+        [HttpPost]
+        public ActionResult EditComments(Comment comment)
+        {
+           if(ModelState.IsValid)
+            {
+                commentService.EditComment(comment);
+                return RedirectToAction("GetPostDetails", "Post", new { postId = comment.PostId });
+
+            }
+            else return View(comment);
         }
 
 

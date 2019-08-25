@@ -1,20 +1,29 @@
-﻿@model Blog.Contracts.ViewModels.PostDetailsViewModel
+﻿@model Blog.Model.Comment
 @{
-    ViewBag.Title = "GetPostDetails";
+    ViewBag.Title = "AddComment";
 }
 
-<h2>@Model.Title <a class="btn btn-warning" href="@Url.Action("EditPost", "Post", new { postId = Model.PostId })">Edytuj</a></h2>
-<h4>@Model.CategoryName</h4>
-<h5>@Model.DateOfAddition | @Model.UserName</h5>
-<p>@Model.Content</p>
-@using (Html.BeginForm("DeletePost", "Post", FormMethod.Post))
+@using (Html.BeginForm("EditComments", "Comment", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
+    @Html.AntiForgeryToken()
+
+    <h4></h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
     @Html.HiddenFor(x => x.PostId)
-    <button class="btn btn-danger">Usuń</button>
+    @Html.HiddenFor(x=>x.CommentId)
+    @Html.HiddenFor(x=>x.DateOfAddition)
+    @Html.HiddenFor(x=>x.UserId)
+    <div class="form-group">
+        @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.Content, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Edytuj" />
+        </div>
+    </div>
 }
-
-@Html.Action("AddComment", "Comment", new { postId = Model.PostId })
-
-
-@Html.Action("ViewComments", "Comment", new { postId = Model.PostId })
 
