@@ -162,9 +162,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\HomeControllerShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CategoryServiceShould.cs" />
+    <Compile Include="Services\ConvertDateShould.cs" />
     <Compile Include="Services\PostServiceShould.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +183,10 @@
     <ProjectReference Include="..\Blog.Model\Blog.Model.csproj">
       <Project>{DE31613C-DFF2-4E28-8649-3837CE536FFE}</Project>
       <Name>Blog.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog.Utils\Blog.Utils.csproj">
+      <Project>{D52806CC-9F9E-491B-ABCA-BA6294728FED}</Project>
+      <Name>Blog.Utils</Name>
     </ProjectReference>
     <ProjectReference Include="..\Blog.WebUI\Blog.WebUI.csproj">
       <Project>{26C8C649-5890-41AC-AF00-0989BEA3BC01}</Project>

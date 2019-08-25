@@ -19,7 +19,7 @@ namespace Blog.Utils
             var ts = new TimeSpan(DateTime.Now.Ticks - youtDate.Ticks);
             double delta = Math.Abs(ts.TotalSeconds);
 
-            if(delta < MINUTE)
+            if(delta <= MINUTE)
             {
                 if(ts.Seconds == 1)
                 {
@@ -30,7 +30,7 @@ namespace Blog.Utils
                     return ts.Seconds + " sekund temu";
                 }
             }
-            if(delta < HOUR)
+            if(delta <= HOUR)
             {
                 if(ts.Minutes == 1)
                 {
@@ -42,11 +42,15 @@ namespace Blog.Utils
                 }
             }
 
-            if(delta < DAY)
+            if(delta <= DAY)
             {
                 if(ts.Hours == 1)
                 {
                     return "godzinę temu";
+                }
+                else if(ts.Hours <= 4)
+                {
+                    return ts.Hours + " godziny temu";
                 }
                 else
                 {
@@ -54,7 +58,7 @@ namespace Blog.Utils
                 }
             }
 
-            if(delta < WEEK)
+            if(delta <= WEEK)
             {
                 if(ts.Days == 1)
                 {
