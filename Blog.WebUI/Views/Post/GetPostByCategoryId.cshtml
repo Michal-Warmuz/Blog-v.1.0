@@ -1,7 +1,10 @@
-﻿@model List<Blog.Contracts.ViewModels.HomePostViewModel>
+﻿@model Blog.Contracts.ViewModels.PostsByCategoryViewModel
+
+
 
 <div style="width: 900px;">
-    @foreach (var item in Model)
+    <p>@Model.CategoryDescription</p>
+    @foreach (var item in Model.Posts)
     {
         <div style="float: left; width: 300px;">
             <h4>@item.CategoryName</h4>

@@ -19,6 +19,12 @@ namespace Blog.Application
         }
         public IEnumerable<Category> Categories { get { return db.Categories; } }
 
+        public void AddCategory(Category category)
+        {
+            db.Categories.Add(category);
+            db.SaveChanges();
+        }
+
         public List<HomeCategoryViewModel> GetAllHomeCategory()
         {
             var list = Categories;
@@ -29,6 +35,12 @@ namespace Blog.Application
                 model.Add(new HomeCategoryViewModel() { CategoryId = item.CategoryId, Name = item.Name });
             }
             return model;
+        }
+
+        public string GetCategoryDescription(int categoryId)
+        {
+            string item = db.Categories.SingleOrDefault(x => x.CategoryId == categoryId).Description;
+            return item;
         }
 
         public string GetCategoryName(int categoryId)

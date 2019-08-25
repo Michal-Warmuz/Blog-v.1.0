@@ -30,17 +30,22 @@ namespace Blog.Application
             db.Posts.Add(post);
             db.SaveChanges();
         }
-
-        public List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId)
+        
+        public PostsByCategoryViewModel GetPostsByCategoryId(int CategoryId)
         {
             var list = Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).Take(3);
 
-            List<HomePostViewModel>  model = new List<HomePostViewModel>();
+            List<HomePostViewModel>  items = new List<HomePostViewModel>();
 
             foreach (var item in list)
             {
-                model.Add(new HomePostViewModel() { PostId = item.PostId, Title = item.Title, ShortContent = item.ShortContent, CategoryName = categoryService.GetCategoryName(item.CategoryId) });
+                items.Add(new HomePostViewModel() { PostId = item.PostId, Title = item.Title, ShortContent = item.ShortContent, CategoryName = categoryService.GetCategoryName(item.CategoryId) });
             }
+
+            PostsByCategoryViewModel model = new PostsByCategoryViewModel();
+            model.Posts = items;
+            model.CategoryDescription = categoryService.GetCategoryDescription(CategoryId);
+
             return model;
         }
 
@@ -84,9 +89,9 @@ namespace Blog.Application
             return item;
         }
 
-        public List<HomePostViewModel> GetPostsByCategoryId(int CategoryId)
+        public List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId)
         {
-            var list = Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).ToList();
+            var list = Posts.Where(x => x.CategoryId == CategoryId).OrderByDescending(x => x.DateOfAddition).Take(3);
 
             List<HomePostViewModel> model = new List<HomePostViewModel>();
 

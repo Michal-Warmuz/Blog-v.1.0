@@ -51,6 +51,7 @@
     <Compile Include="ViewModels\HomeCategoryViewModel.cs" />
     <Compile Include="ViewModels\HomePostViewModel.cs" />
     <Compile Include="ViewModels\PostDetailsViewModel.cs" />
+    <Compile Include="ViewModels\PostsByCategoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

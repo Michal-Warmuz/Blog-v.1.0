@@ -15,7 +15,7 @@ namespace Blog.Contracts.Services
         void AddPost(Post post);
         List<HomePostViewModel> GetNewsPostsByCategoryId(int CategoryId);
         PostDetailsViewModel GetPostDetails(int postId);
-        List<HomePostViewModel> GetPostsByCategoryId(int CategoryId);
+        PostsByCategoryViewModel GetPostsByCategoryId(int CategoryId);
         void EditPost(Post post);
         Post GetPost(int postId);
         void DeletePost(int postId);

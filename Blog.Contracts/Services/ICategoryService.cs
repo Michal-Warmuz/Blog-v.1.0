@@ -13,5 +13,7 @@ namespace Blog.Contracts.Services
         IEnumerable<Category> Categories { get; }
         List<HomeCategoryViewModel> GetAllHomeCategory();
         string GetCategoryName(int categoryId);
+        void AddCategory(Category category);
+        string GetCategoryDescription(int categoryId);
     }
 }
