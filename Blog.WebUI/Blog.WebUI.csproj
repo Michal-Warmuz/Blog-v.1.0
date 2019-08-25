@@ -192,6 +192,7 @@
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
     <Compile Include="Infrastructure\PostDynamicNodeProvider.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CommentEditViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PostAddViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

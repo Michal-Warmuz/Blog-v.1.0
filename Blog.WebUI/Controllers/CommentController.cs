@@ -1,5 +1,6 @@
 ﻿using Blog.Contracts.Services;
 using Blog.Model;
+using Blog.WebUI.Models;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Blog.WebUI.Controllers
             postService = _postService;
         }
         [HttpGet]
+        [Authorize(Roles = "User,Redaktor")]
         public ViewResult AddComment(int postId)
         {
 
@@ -31,6 +33,7 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User, Redaktor")]
         public ActionResult AddComment(Comment comment)
         {
             if (ModelState.IsValid)
@@ -47,11 +50,16 @@ namespace Blog.WebUI.Controllers
         public PartialViewResult ViewComments(int postId)
         {
             var items = commentService.GetComments(postId);
-            return PartialView("_ViewComments", items);
+
+            CommentEditViewModel vm = new CommentEditViewModel();
+            vm.Comments = items;
+            vm.ActiveUser = User.Identity.GetUserId();
+            return PartialView("_ViewComments", vm);
         }
 
 
         [HttpGet]
+        [Authorize(Roles = "User, Redaktor")]
         public ViewResult EditComments(int commentId)
         {
             var items = commentService.FindComment(commentId);
@@ -60,6 +68,7 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User, Redaktor")]
         public ActionResult EditComments(Comment comment)
         {
            if(ModelState.IsValid)
@@ -74,6 +83,7 @@ namespace Blog.WebUI.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "User, Redaktor")]
         public ActionResult DeleteComment(int commentId)
         {
             var post = commentService.FindComment(commentId).PostId;

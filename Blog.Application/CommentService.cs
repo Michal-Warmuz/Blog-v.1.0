@@ -53,7 +53,7 @@ namespace Blog.Application
             var model = new  List<CommentViewModel>();
             foreach (var item in list)
             {
-                model.Add(new CommentViewModel() { CommentId = item.CommentId, Content = item.Content, DateOfAddition = item.DateOfAddition, UserName = userService.GetUserName(item.UserId), ImageUrl = userService.GetUserImageUrl(item.UserId) });
+                model.Add(new CommentViewModel() { CommentId = item.CommentId, Content = item.Content, DateOfAddition = item.DateOfAddition, UserName = userService.GetUserName(item.UserId), ImageUrl = userService.GetUserImageUrl(item.UserId), UserId = item.UserId });
             }
 
             return model;

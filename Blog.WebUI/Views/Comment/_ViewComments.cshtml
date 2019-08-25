@@ -1,29 +1,38 @@
-﻿@model List<Blog.Contracts.ViewModels.CommentViewModel>
+﻿@model Blog.WebUI.Models.CommentEditViewModel
 
 
 <table class="table table-striped">
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Comments)
         {
-            <tr>
+        <tr>
+            <td>
+                <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="50" height="50" />
+            </td>
+            <td>
+                <h6><b>@item.UserName</b> | @item.DateOfAddition</h6>
+                <p>@item.Content</p>
+            </td>
+
+            @if (item.UserId == Model.ActiveUser || User.IsInRole("Redaktor"))
+            {
                 <td>
-                    <img src="@Url.Content(item.ImageUrl)" alt="Alternate Text" width="50" height="50" />
-                </td>
-                <td>
-                    <h6><b>@item.UserName</b> | @item.DateOfAddition</h6>
-                    <p>@item.Content</p>
-                </td>
-                <td>    
-                    @using(Html.BeginForm("DeleteComment", "Comment", new { commentId = item.CommentId } ))
+                    @using (Html.BeginForm("DeleteComment", "Comment", new { commentId = item.CommentId }))
                     {
                         <button class="btn btn-danger">Usuń</button>
                     }
-                    
-                 </td>
+
+                </td>
                 <td>
                     <a class="btn btn-warning" href="@Url.Action("EditComments", "Comment", new { commentId = item.CommentId })">Edytuj</a>
                 </td>
-            </tr>
+            }
+            else
+            {
+                <td></td>
+                <td></td>
+            }
+        </tr>
         }
     </tbody>
 </table>
