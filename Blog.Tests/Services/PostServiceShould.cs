@@ -17,7 +17,7 @@ namespace Blog.Tests.Services
             var mockCtx = new Mock<ApplicationDbContext>();
 
             mockCtx.Setup(x => x.Posts).Returns(mockSet.Object);
-            PostService postService = new PostService(mockCtx.Object,null,null);
+            PostService postService = new PostService(mockCtx.Object,null,null,null);
 
             Post post = new Post();
             post.Content = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";

@@ -12,41 +12,42 @@ namespace Blog.Utils
         private const uint MINUTE = 60 * SECOND;
         private const uint HOUR = 60 * MINUTE;
         private const uint DAY = 24 * HOUR;
-        private const uint WEEK = 7 * DAY;
+        private const uint WEEK = 8 * DAY;
 
         public static string ConvertRelativeDate(DateTime youtDate)
         {
             var ts = new TimeSpan(DateTime.Now.Ticks - youtDate.Ticks);
             double delta = Math.Abs(ts.TotalSeconds);
+            string returnValue = "";
 
             if(delta <= MINUTE)
             {
                 if(ts.Seconds == 1)
                 {
-                    return "sekunde temu";
+                    returnValue =  "sekunde temu";
                 }
                 else if(ts.Seconds <=4)
                 {
-                    return ts.Seconds + " sekundy temu";
+                    returnValue = ts.Seconds + " sekundy temu";
                 }
                 else
                 {
-                    return ts.Seconds + " sekund temu";
+                    returnValue = ts.Seconds + " sekund temu";
                 }
             }
             if(delta <= HOUR)
             {
                 if(ts.Minutes == 1)
                 {
-                    return "minute temu";
+                    returnValue = "minute temu";
                 }
                 else if (ts.Minutes <= 4)
                 {
-                    return ts.Minutes + " minuty temu";
+                    returnValue = ts.Minutes + " minuty temu";
                 }
                 else
                 {
-                    return ts.Minutes + " minut temu";
+                    returnValue = ts.Minutes + " minut temu";
                 }
             }
 
@@ -54,15 +55,15 @@ namespace Blog.Utils
             {
                 if(ts.Hours == 1)
                 {
-                    return "godzinę temu";
+                    returnValue = "godzinę temu";
                 }
                 else if(ts.Hours <= 4)
                 {
-                    return ts.Hours + " godziny temu";
+                    returnValue = ts.Hours + " godziny temu";
                 }
                 else
                 {
-                    return ts.Hours + " godzin temu";
+                    returnValue = ts.Hours + " godzin temu";
                 }
             }
 
@@ -70,15 +71,20 @@ namespace Blog.Utils
             {
                 if(ts.Days == 1)
                 {
-                    return "wczoraj";
+                    returnValue = "wczoraj";
                 }
                 else
                 {
-                    return ts.Days + " dni temu";
+                    returnValue = ts.Days + " dni temu";
                 }
             }
 
-            return youtDate.ToString();
+            if(delta > WEEK)
+            {
+                returnValue = youtDate.ToString();
+            }
+
+            return returnValue;
             
         }
 
