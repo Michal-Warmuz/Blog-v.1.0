@@ -25,6 +25,10 @@ namespace Blog.Utils
                 {
                     return "sekunde temu";
                 }
+                else if(ts.Seconds <=4)
+                {
+                    return ts.Seconds + " sekundy temu";
+                }
                 else
                 {
                     return ts.Seconds + " sekund temu";
@@ -35,6 +39,10 @@ namespace Blog.Utils
                 if(ts.Minutes == 1)
                 {
                     return "minute temu";
+                }
+                else if (ts.Minutes <= 4)
+                {
+                    return ts.Minutes + " minuty temu";
                 }
                 else
                 {
