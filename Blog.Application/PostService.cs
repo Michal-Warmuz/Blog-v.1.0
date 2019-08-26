@@ -15,12 +15,14 @@ namespace Blog.Application
         private ApplicationDbContext db;
         private ICategoryService categoryService;
         private IUserService userService;
+        private ICommentService commentService;
 
-        public PostService(ApplicationDbContext _db, ICategoryService _categoryService, IUserService _userService)
+        public PostService(ApplicationDbContext _db, ICategoryService _categoryService, IUserService _userService, ICommentService _commentService)
         {
             db = _db;
             categoryService = _categoryService;
             userService = _userService;
+            commentService = _commentService;
         }
 
         public IEnumerable<Post> Posts { get { return db.Posts; } }
@@ -47,6 +49,7 @@ namespace Blog.Application
             model.Posts = items;
             model.CategoryDescription = category.Description;
             model.CategoryName = category.Name;
+            model.CategoryId = category.CategoryId;
 
             return model;
         }
@@ -122,6 +125,13 @@ namespace Blog.Application
         public void DeletePost(int postId)
         {
             var post = GetPost(postId);
+
+            var comments = db.Comments.Where(x => x.PostId == postId);
+
+            foreach (var item in comments)
+            {
+                commentService.DeleteComment(item.CommentId);
+            }
             db.Posts.Remove(post);
             db.SaveChanges();
         }

@@ -10,6 +10,7 @@ namespace Blog.Contracts.ViewModels
     {
         public List<HomePostViewModel> Posts { get; set; }
         public string CategoryDescription { get; set; } 
-        public string CategoryName { get; set; } 
+        public string CategoryName { get; set; }
+        public int CategoryId { get; set; }
     }
 }

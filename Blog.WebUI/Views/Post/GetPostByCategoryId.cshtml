@@ -3,7 +3,17 @@
 
 
 <div style="width: 900px;">
-    <h2>@Model.CategoryName</h2>
+    <h2>
+        @Model.CategoryName
+        @if (User.IsInRole("Redaktor"))
+        {
+            using (Html.BeginForm("DeleteCategory", "Category", FormMethod.Post))
+            {
+                @Html.HiddenFor(x=>x.CategoryId)
+                <button class="btn btn-danger">Usuń</button>
+            }
+        }
+    </h2>
     <p>@Model.CategoryDescription</p>
     @foreach (var item in Model.Posts)
     {

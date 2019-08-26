@@ -16,5 +16,6 @@ namespace Blog.Contracts.Services
         void AddCategory(Category category);
         string GetCategoryDescription(int categoryId);
         Category GetCategory(int categoryId);
+        void DeleteCategory(int categoryId);
     }
 }

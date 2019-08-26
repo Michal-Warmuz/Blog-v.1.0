@@ -25,6 +25,18 @@ namespace Blog.Application
             db.SaveChanges();
         }
 
+        public void DeleteCategory(int categoryId)
+        {
+            var postList = db.Posts.Where(x => x.CategoryId == categoryId);
+            foreach (var item in postList)
+            {
+                db.Posts.Remove(item);
+            }
+            var category = db.Categories.SingleOrDefault(x => x.CategoryId == categoryId);
+            db.Categories.Remove(category);
+            db.SaveChanges();
+        }
+
         public List<HomeCategoryViewModel> GetAllHomeCategory()
         {
             var list = Categories;

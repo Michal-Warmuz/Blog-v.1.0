@@ -5,6 +5,8 @@
 
 @foreach (var item in Model)
 {
-    <h1><a href="@Url.Action("GetPostByCategoryId", "Post", new { CategoryId = item.CategoryId })">@item.Name</a></h1>
+    <h1>
+        <a href="@Url.Action("GetPostByCategoryId", "Post", new { CategoryId = item.CategoryId })">@item.Name</a>
+    </h1>
     @Html.Action("NewsPosts", new { CategoryId = item.CategoryId })
 }

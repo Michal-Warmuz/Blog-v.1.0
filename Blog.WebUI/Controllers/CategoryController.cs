@@ -25,6 +25,14 @@ namespace Blog.WebUI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Redaktor")]
+        public ActionResult DeleteCategory(int categoryId)
+        {
+            categoryService.DeleteCategory(categoryId);
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Redaktor")]
         public ActionResult AddCategory(Category category)
