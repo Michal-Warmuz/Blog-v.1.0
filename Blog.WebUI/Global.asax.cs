@@ -19,6 +19,7 @@ namespace Blog.WebUI
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             ControllerBuilder.Current.SetControllerFactory(
             new NinjectControllerFactory());
+            log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

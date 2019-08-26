@@ -1,6 +1,7 @@
 ﻿using Blog.Contracts.Services;
 using Blog.Model;
 using Blog.WebUI.Models;
+using log4net;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Blog.WebUI.Controllers
     {
         private ICommentService commentService;
         private IPostService postService;
+        ILog log = log4net.LogManager.GetLogger(typeof(CommentController));
 
         public CommentController(ICommentService _commentService, IPostService _postService)
         {
@@ -24,7 +26,7 @@ namespace Blog.WebUI.Controllers
         [Authorize(Roles = "User,Redaktor")]
         public ViewResult AddComment(int postId)
         {
-
+            log.Info("Dodanie komentarza");
             var comment = new Comment()
             {
                 PostId = postId
@@ -49,6 +51,7 @@ namespace Blog.WebUI.Controllers
         [HttpGet]
         public PartialViewResult ViewComments(int postId)
         {
+            log.Info("Widok komentarza");
             var items = commentService.GetComments(postId);
 
             CommentEditViewModel vm = new CommentEditViewModel();
@@ -62,6 +65,7 @@ namespace Blog.WebUI.Controllers
         [Authorize(Roles = "User, Redaktor")]
         public ViewResult EditComments(int commentId)
         {
+            log.Info("Edycja komentarza");
             var items = commentService.FindComment(commentId);
                 
             return View(items);
@@ -86,6 +90,7 @@ namespace Blog.WebUI.Controllers
         [Authorize(Roles = "User, Redaktor")]
         public ActionResult DeleteComment(int commentId)
         {
+            log.Info("Usunięcie  komentarza");
             var post = commentService.FindComment(commentId).PostId;
             commentService.DeleteComment(commentId);
             return RedirectToAction("GetPostDetails", "Post", new { postId =  post} );

@@ -1,6 +1,7 @@
 ﻿using Blog.Contracts.Services;
 using Blog.Model;
 using Blog.WebUI.Models;
+using log4net;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Blog.WebUI.Controllers
     {
         private IPostService postService;
         private ICategoryService categoryService;
+        ILog log = log4net.LogManager.GetLogger(typeof(PostController));
 
         public PostController(IPostService _postService, ICategoryService _categoryService)
         {
@@ -32,6 +34,7 @@ namespace Blog.WebUI.Controllers
                 Post = post,
                 Categories = categoryService.Categories
             };
+            log.Info("Edycja Postu");
             return View(vm);
         }
 
@@ -62,7 +65,9 @@ namespace Blog.WebUI.Controllers
         public ActionResult DeletePost(int postId)
         {
             postService.DeletePost(postId);
+            log.Info("Usunięcie Postu");
             return RedirectToAction("Index", "Home");
+            
         }
 
         [HttpGet]
@@ -75,6 +80,8 @@ namespace Blog.WebUI.Controllers
             {
                 UserId = User.Identity.GetUserId()
             };
+
+            log.Info("Dodanie  Postu " + userId);
             PostAddViewModel vm = new PostAddViewModel
             {
                 Post = post,
@@ -111,13 +118,16 @@ namespace Blog.WebUI.Controllers
         [HttpGet]
         public ViewResult GetPostDetails(int postId)
         {
+            log.Info("Pobranie szczegółów postu");
             var item = postService.GetPostDetails(postId);
             return View(item);
+
         }
 
         [HttpGet]
         public ViewResult GetPostByCategoryId(int categoryId)
         {
+            log.Info("Pobranie postów według kategorii");
             var item = postService.GetPostsByCategoryId(categoryId);
             return View(item);
         }

@@ -1,0 +1,8 @@
+DEBUG 2019-08-26 08:30:43,269  5941ms HomeController         Index              - Debug message
+WARN  2019-08-26 08:30:43,319  5991ms HomeController         Index              - Warn message
+ERROR 2019-08-26 08:30:43,320  5992ms HomeController         Index              - Error message
+FATAL 2019-08-26 08:30:43,322  5994ms HomeController         Index              - Fatal message
+2019-08-26 08:35:03,853 [10] DEBUG Blog.WebUI.Controllers.HomeController - Debug message
+2019-08-26 08:35:03,863 [10] WARN Blog.WebUI.Controllers.HomeController - Warn message
+2019-08-26 08:35:03,863 [10] ERROR Blog.WebUI.Controllers.HomeController - Error message
+2019-08-26 08:35:03,863 [10] FATAL Blog.WebUI.Controllers.HomeController - Fatal message
