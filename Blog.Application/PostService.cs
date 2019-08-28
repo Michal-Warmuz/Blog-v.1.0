@@ -125,13 +125,6 @@ namespace Blog.Application
         public void DeletePost(int postId)
         {
             var post = GetPost(postId);
-
-            var comments = db.Comments.Where(x => x.PostId == postId);
-
-            foreach (var item in comments)
-            {
-                commentService.DeleteComment(item.CommentId);
-            }
             db.Posts.Remove(post);
             db.SaveChanges();
         }

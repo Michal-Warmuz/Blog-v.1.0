@@ -35,6 +35,7 @@ namespace Blog.Model
         public virtual DbSet<Comment> Comments { get; set; }
 
 
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

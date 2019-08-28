@@ -6,3 +6,12 @@ FATAL 2019-08-26 08:30:43,322  5994ms HomeController         Index              
 2019-08-26 08:35:03,863 [10] WARN Blog.WebUI.Controllers.HomeController - Warn message
 2019-08-26 08:35:03,863 [10] ERROR Blog.WebUI.Controllers.HomeController - Error message
 2019-08-26 08:35:03,863 [10] FATAL Blog.WebUI.Controllers.HomeController - Fatal message
+2019-08-27 10:46:03,633 [9] INFO Blog.WebUI.Controllers.HomeController - Strona g³ówna
+2019-08-27 10:46:06,398 [9] INFO Blog.WebUI.Controllers.HomeController - Najnowsze posty
+2019-08-27 10:47:32,767 [9] INFO Blog.WebUI.Controllers.PostController - Pobranie szczegó³ów postu
+2019-08-27 10:47:33,258 [9] INFO Blog.WebUI.Controllers.CommentController - Widok komentarza
+2019-08-27 10:47:46,081 [12] INFO Blog.WebUI.Controllers.HomeController - Strona g³ówna
+2019-08-27 10:47:46,091 [12] INFO Blog.WebUI.Controllers.HomeController - Najnowsze posty
+2019-08-27 10:47:48,306 [12] INFO Blog.WebUI.Controllers.PostController - Pobranie szczegó³ów postu
+2019-08-27 10:47:48,337 [12] INFO Blog.WebUI.Controllers.CommentController - Dodanie komentarza
+2019-08-27 10:47:48,365 [12] INFO Blog.WebUI.Controllers.CommentController - Widok komentarza
